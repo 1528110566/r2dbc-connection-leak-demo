@@ -1,0 +1,19 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://192.168.1.3:35883/demo
+    username: root
+    password: 123456
+    pool:
+      enabled: true
+      max-acquire-time: PT10s
+      max-size: 10
+      validation-query: SELECT 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging.level.io.r2dbc.pool.ConnectionPool: debug
+logging.level.io.r2dbc.pool.PooledConnection: debug
